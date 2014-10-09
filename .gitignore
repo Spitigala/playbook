@@ -1,0 +1,3 @@
+*.pyc
+playbook/settings.py
+.DS_Store
