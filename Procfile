@@ -1,0 +1,1 @@
+web: gunicorn playbook.wsgi --log-file -
