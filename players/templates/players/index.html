@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block players %}
+	<h1>All Players: Template working. Class based.</h1>
+
+	{% if all_players %}
+	    <ul>
+	    {% for player in all_players %}
+	        <li>{{ player.first_name }} {{ player.last_name }}</li>
+	    {% endfor %}
+	    </ul>
+	{% else %}
+	    <p>No Players are available.</p>
+	{% endif %}
+{% endblock %}
