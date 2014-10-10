@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Title of the document</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
+</head>
+
+<body>
+	<h1>In the layout 2:</h1>
+	<div class="players">
+		{% block players %} 
+
+		{% endblock %}
+	</div>
+</body>
+
+</html>
