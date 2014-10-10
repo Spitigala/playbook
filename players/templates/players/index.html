@@ -2,11 +2,16 @@
 
 {% block players %}
 	<h1>All Players: Template working. Class based.</h1>
+	<ul>
+		<li><a href="/players/create">Create New Player</a></li>
+	</ul>
 
 	{% if all_players %}
 	    <ul>
 	    {% for player in all_players %}
 	        <li>{{ player.first_name }} {{ player.last_name }}</li>
+	        <p><a href="/players/edit/{{player.id}}/">Edit</a></p>
+	        <p><a href="/players/delete/{{player.id}}/">Delete</a></p>
 	    {% endfor %}
 	    </ul>
 	{% else %}
