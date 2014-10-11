@@ -3,16 +3,36 @@
 <html>
 <head>
 	<title>Title of the document</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
 </head>
 
 <body>
-	<h1>In the layout 2:</h1>
-	<div class="players">
-		{% block players %} 
-
-		{% endblock %}
+	<div class="topbar">
+		
 	</div>
+
+	<div class="container-fluid">
+	  <div class="row">
+	    <div class="col-md-6 col-md-offset-3">
+	    	{% block players %} 
+
+	    	{% endblock %}
+	    </div>
+	  </div>
+	</div>
+
+	<div class="container-fluid">
+	  <div class="row">
+	    <div class="col-md-6">
+	    	{% block form %} 
+
+	    	{% endblock %}
+	    </div>
+	  </div>
+	</div>
+
 </body>
 
 </html>
