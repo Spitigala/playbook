@@ -1,20 +1,29 @@
 {% extends 'layout.html' %}
 
 {% block players %}
-	<h1>All Players: Template working. Class based.</h1>
-	<ul>
-		<li><a href="/players/create">Create New Player</a></li>
-	</ul>
+		<h1>All Players:</h1>
+		<a href="/players/create"><button type="button" class="btn btn-primary btn-lg add-player">Add Player</button></a>
 
 	{% if all_players %}
-	    <ul>
-	    {% for player in all_players %}
-	        <li>{{ player.first_name }} {{ player.last_name }}</li>
-	        <p><a href="/players/edit/{{player.id}}/">Edit</a></p>
-	        <p><a href="/players/delete/{{player.id}}/">Delete</a></p>
-	    {% endfor %}
-	    </ul>
+
+	  {% for player in all_players %}
+	    <div class="panel panel-default">
+	      <div class="panel-heading"><h4>{{ player.first_name }} {{ player.last_name }}</h4>
+	      </div>
+
+	      <div class="panel-body">
+	      	<p>Sport: {{ player.sport }}</p>
+	      	<p>League: {{ player.league }}</p>
+	      	<p> Team: {{ player.team }}</p>
+	        <p><i class="fa fa-pencil-square-o"></i> <a href="/players/edit/{{player.id}}/">Edit</a></p>
+	        <p><i class="fa fa-trash"></i> <a href="/players/delete/{{player.id}}/">Delete</a></p>
+	      </div>
+	    </div>
+	  {% endfor %}
+
 	{% else %}
+
 	    <p>No Players are available.</p>
+	    
 	{% endif %}
 {% endblock %}
