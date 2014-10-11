@@ -1,7 +1,11 @@
 body {
- background-color: blue;
+ background-color: #EEEEEE;
 }
 
-.myfieldclass {
-	background-color: yellow;
+.signup-form {
+	margin-top: 5%;
+}
+
+.add-player {
+	margin: 5% 0;
 }
