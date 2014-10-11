@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
 from players.models import Player
@@ -7,9 +6,15 @@ from forms import PlayerForm
 from django.http import HttpResponseRedirect
 from django.core.context_processors import csrf
 
-def players(request):
+def index(request):
     all_players = Player.objects.all().order_by('-last_name')
     t = loader.get_template('players/index.html')
+    c = Context({"all_players": all_players})
+    return HttpResponse(t.render(c))
+
+def players(request):
+    all_players = Player.objects.all().order_by('-last_name')
+    t = loader.get_template('players/players.html')
     c = Context({"all_players": all_players})
     return HttpResponse(t.render(c))
 
