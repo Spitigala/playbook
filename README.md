@@ -1,5 +1,5 @@
 ## A Basic CRUD app built with python and django. 
-[Playbook](http://radiant-bastion-6945.herokuapp.com/players/)
+[Playbook](http://radiant-bastion-6945.herokuapp.com)
 
 
 #### Technologies:
