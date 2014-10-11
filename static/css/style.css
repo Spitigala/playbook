@@ -2,7 +2,7 @@ body {
  background-color: #EEEEEE;
 }
 
-.signup-form {
+.signup-form, .edit-form {
 	margin-top: 5%;
 }
 

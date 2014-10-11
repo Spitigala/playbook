@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block form %}
-<div class="col-md-8 col-md-offset-4 signup-form">
+<div class="col-md-8 col-md-offset-4 edit-form">
    <h2>Edit Player</h2>
    <form action="/players/edit/{{player.id}}/" method="post">{% csrf_token %}
        {{form.as_p}}
