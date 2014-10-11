@@ -1,6 +1,11 @@
-<form action="/players/create/" method="post">{% csrf_token %}
-    <ul>
-        {{form.as_ul}}
-    </ul>
-    <input type="submit" name="submit" value="Create Player">
-</form>
+{% extends 'layout.html' %}
+
+{% block form %}
+<div class="col-md-8 col-md-offset-4 signup-form">
+  <h2>Add a new player</h2>
+  <form class="form-horizontal" action="/players/create/" method="post">{% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-default">Create Player</button>
+  </form> 
+</div> 
+{% endblock %}
