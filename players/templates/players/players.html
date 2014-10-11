@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block players %}
+<h1>All Players:</h1>
+<a href="/players/create"><button type="button" class="btn btn-primary btn-md add-player">Add Player</button></a>
+<a href="/"><button type="button" class="btn btn-primary btn-md add-player">Home</button></a>
+
+	{% if all_players %}
+
+	  {% for player in all_players %}
+	    <div class="panel panel-default">
+	      <div class="panel-heading">
+	      	<h4>{{ player.first_name }} {{ player.last_name }}</h4>
+	      </div>
+	      <div class="panel-body">
+	      	<table class="table">
+	      		<tr>
+	      			<th>Sport</th>
+	      			<th>League</th>
+	      			<th>Team</th>
+	      		</tr>
+	      		<tr>
+	      			<td>{{ player.sport }}</td>
+	      			<td>{{ player.league }}</td>
+	      			<td>{{ player.team }}</td>
+	      		</tr>
+	      	</table>
+	        <p>
+	        	<i class="fa fa-pencil-square-o"></i> <a href="/players/edit/{{player.id}}/">Edit</a>
+	        	<i class="fa fa-trash"></i> <a href="/players/delete/{{player.id}}/">Delete</a>
+	        </p>
+	      </div>
+	    </div>
+	  {% endfor %}
+
+	{% else %}
+
+	    <p>No Players are available.</p>
+	    
+	{% endif %}
+	
+{% endblock %}

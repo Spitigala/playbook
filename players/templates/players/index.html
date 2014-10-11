@@ -1,29 +1,13 @@
 {% extends 'layout.html' %}
 
-{% block players %}
-		<h1>All Players:</h1>
-		<a href="/players/create"><button type="button" class="btn btn-primary btn-lg add-player">Add Player</button></a>
-
-	{% if all_players %}
-
-	  {% for player in all_players %}
-	    <div class="panel panel-default">
-	      <div class="panel-heading"><h4>{{ player.first_name }} {{ player.last_name }}</h4>
-	      </div>
-
-	      <div class="panel-body">
-	      	<p>Sport: {{ player.sport }}</p>
-	      	<p>League: {{ player.league }}</p>
-	      	<p> Team: {{ player.team }}</p>
-	        <p><i class="fa fa-pencil-square-o"></i> <a href="/players/edit/{{player.id}}/">Edit</a></p>
-	        <p><i class="fa fa-trash"></i> <a href="/players/delete/{{player.id}}/">Delete</a></p>
-	      </div>
-	    </div>
-	  {% endfor %}
-
-	{% else %}
-
-	    <p>No Players are available.</p>
-	    
-	{% endif %}
+{% block home %}
+<div class="splash">
+	<div class="header">
+		<h1>Playbook</h1>
+		<h3>The Social Network for Athletes</h3>
+	</div>
+	<div class="main">
+		<a href="/players/"><button type="button" class="btn btn-default">View Athletes</button></a>
+	</div>
+</div>
 {% endblock %}
