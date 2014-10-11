@@ -5,5 +5,3 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('players.urls')),
 )
-
-# for root url, you can't handle it through player.

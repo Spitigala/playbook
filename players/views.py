@@ -1,22 +1,22 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from players.models import Player
 from django.template import loader, Context
 from forms import PlayerForm
-from django.http import HttpResponseRedirect
 from django.core.context_processors import csrf
 
 def index(request):
     all_players = Player.objects.all().order_by('-last_name')
-    t = loader.get_template('players/index.html')
-    c = Context({"all_players": all_players})
-    return HttpResponse(t.render(c))
+    template = loader.get_template('players/index.html')
+    context = Context({"all_players": all_players})
+    return HttpResponse(template.render(context))
 
 def players(request):
     all_players = Player.objects.all().order_by('-last_name')
-    t = loader.get_template('players/players.html')
-    c = Context({"all_players": all_players})
-    return HttpResponse(t.render(c))
+    template = loader.get_template('players/players.html')
+    context = Context({"all_players": all_players})
+    return HttpResponse(template.render(context))
 
 def create(request):
     if request.POST:
@@ -34,22 +34,22 @@ def create(request):
 
 def edit(request, player_id):
     if player_id:
-        p = Player.objects.get(id=player_id)
+        player = Player.objects.get(id=player_id)
     if request.method == "POST":
-        form = PlayerForm(request.POST, instance=p)
+        form = PlayerForm(request.POST, instance=player)
         if form.is_valid():
         	  form.save()
         	  return HttpResponseRedirect('/players/')
     else:
-    	  form = PlayerForm(instance=p)
+    	  form = PlayerForm(instance=player)
 
     args = {}
     args.update(csrf(request))
     args['form'] = form
-    args['player'] = p
+    args['player'] = player
     return render_to_response('players/edit.html', args)
 
 def delete(request, player_id):
-    p = Player.objects.get(id=player_id)
-    p.delete()
+    player = Player.objects.get(id=player_id)
+    player.delete()
     return HttpResponseRedirect('/players/')
