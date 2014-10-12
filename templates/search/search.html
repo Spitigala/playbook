@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block players %}
+
+<a href="/players/"><button type="button" class="btn btn-default add-player">All Players</button></a>
+<a href="/"><button type="button" class="btn btn-primary btn-md add-player">Home</button></a>
+
+<div class="panel panel-default search-form-panel">
+  <div class="panel-heading"><h4>Search</h4></div>
+  <div class="panel-body">
+    <form action="/search" method="get">
+        <input type="text" name="q">
+        <button type="submit" class="btn btn-sm btn-default">Search</button>
+        <label for="query"><i>Search for a player by name or team</i></label>
+    </form>
+  </div>
+</div>
+
+{% if query %}
+  <h3 class="results-heading">Results</h3>
+  {% for result in page.object_list %}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>{{ result.object.first_name }} {{ result.object.last_name }}</h4>
+    </div>
+    <div class="panel-body">
+      <table class="table">
+        <tr>
+          <th>Sport</th>
+          <th>League</th>
+          <th>Team</th>
+        </tr>
+        <tr>
+          <td>{{ result.object.sport }}</td>
+          <td>{{ result.object.league }}</td>
+          <td>{{ result.object.team }}</td>
+        </tr>
+      </table>
+      <p>
+        <i class="fa fa-pencil-square-o"></i> <a href="/players/edit/{{result.object.id}}/">Edit</a>
+        <i class="fa fa-trash"></i> <a href="/players/delete/{{result.object.id}}/">Delete</a>
+      </p>
+    </div>
+  </div>
+  {% empty %}
+{% endfor %}
+
+{% else %}
+
+{% endif %}
+
+{% endblock %}
