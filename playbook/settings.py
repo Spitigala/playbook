@@ -10,7 +10,6 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-import dj_database_url
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -65,7 +64,14 @@ TEMPLATE_DIRS = (
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config()
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'mydb',
+        'USER': 'keebler',
+        'PASSWORD': 'index2kx',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
 }
 
 # Internationalization

@@ -1,5 +1,15 @@
-## A Basic CRUD app built with python and django. 
+## A Basic app built with python and django. 
+
+
+#### Working CRUD version:
 [Playbook](http://radiant-bastion-6945.herokuapp.com)
+
+#### Full-text search version (under development):
+[Playbook with search](http://enigmatic-savannah-6878.herokuapp.com/)
+
+This version uses Haystack and Whoosh, but heroku can not seem to build indexes. Files may have to be hosted elsewhere. Code with search functionality is in 'Search' branch.
+
+
 
 
 #### Technologies:
